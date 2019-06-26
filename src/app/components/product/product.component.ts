@@ -9,7 +9,7 @@ import { MeliserviceService } from '../../services/meliservice.service';
 })
 export class ProductComponent {
   item: any = {};
-  description: any[] = [];
+  description: any = {};
   loading: boolean;
 
   constructor(private router: ActivatedRoute, private meli: MeliserviceService) {
@@ -19,30 +19,18 @@ export class ProductComponent {
       this.getItem(params['id']);
       this.getItemDescription(params['id']);
       this.loading = false;
-
-      console.log(this.item);
-      console.log(this.description);
     });
   }
 
   getItem(id: string) {
-    // this.meli.getItem(id).subscribe(item => {
-    //   this.item = item;
-    // });
-    // this.meli.getItem(id).then(function(value) {
-    //   console.log('success', value);
-    // }, function(reason) {
-    //   console.log('error' , reason);
-    // });
     this.meli.getItem(id).then((data) => {
-      console.log(data);
+      this.item = data;
     });
   }
 
   getItemDescription(id: string) {
-    // this.meli.getItemDescription(id).subscribe((description: any) => {
-    //   this.description = description;
-    // });
-    this.meli.getItemDescription(id);
+    this.meli.getItemDescription(id).then((data) => {
+      this.description = data;
+    });
   }
 }

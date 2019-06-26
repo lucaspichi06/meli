@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { a } from '@angular/core/src/render3';
 
 @Injectable({
   providedIn: 'root'
@@ -22,13 +20,26 @@ export class MeliserviceService {
   }
 
   getItem(id: string) {
-    return new Promise(function(resolve, reject) {
-      resolve(this.getQuery(`items/${id}`));
+    const promise = new Promise((resolve, reject) => {
+      this.getQuery(`items/${id}`).toPromise()
+      .then(
+        res => { // Success
+          resolve(res);
+        }
+      );
     });
-    // return this.getQuery(`items/${id}`);
+    return promise;
   }
 
   getItemDescription(id: string)  {
-    return this.getQuery(`items/${id}/description`);
+    const promise = new Promise((resolve, reject) => {
+      this.getQuery(`items/${id}/description`).toPromise()
+      .then(
+        res => { // Success
+          resolve(res);
+        }
+      );
+    });
+    return promise;
   }
 }

@@ -1,0 +1,37 @@
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="!loading">
+    <div class="row text-left animated fadeIn no-gutters">
+        <div class="card col-xs-12 m-3">
+            <div class="row">
+                <div class="col-md-8 m-t-32 ">
+                    <img [src]="item.pictures[0].url | noimage" class="img-thumb-item m-l-32">
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-sm-12 m-t-32 m-b-16 item-vendidos">{{ item.condition }} - {{ item.sold_quantity }} vendidos</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 m-b-32 wrapper item-titulo">{{ item.title }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <span class="item-precio">{{ item.price | currency }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 m-r-32 m-t-32">
+                            <button class="btn btn-compra">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-8 m-32 item-descripcion-titulo">Descripción del producto</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-8 m-l-32 m-b-32 item-descripcion">{{ description.plain_text }}</div>
+            </div>
+        </div>
+        <div class="col-sm-1 hidden-xs"></div>
+    </div>
+</div>
