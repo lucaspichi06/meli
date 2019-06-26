@@ -1,0 +1,13 @@
+<div class="col-sm-12 navbar-meli p-2 text-center" id="navbar-search">
+    <div class="row text-center">
+        <div class="col-sm-2 hidden-xs"></div>
+        <div class="input-group text-center col-sm-8 col-xs-12">
+            <img src="assets/img/Logo_ML.png" width="30" height="30" class="d-inline-block navbar-img" alt="">
+            <input #termino type="text" (keyup.enter)="buscar(termino.value)" class="navbar-input" placeholder="Nunca dejes de buscar" />
+            <div class="input-group-prepend">
+                <img src="assets/img/ic_Search.png" (click)="buscar(termino.value)" width="30" height="30" class="navbar-search input-group-text" alt="">
+            </div>
+        </div>
+        <div class="col-sm-2 hidden-xs"></div>
+    </div>
+</div>

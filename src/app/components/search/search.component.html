@@ -1,0 +1,37 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="!loading">
+    <div class="row text-center">
+        <div class="col-sm-2 hidden-xs"></div>
+        <div class="card col-sm-9 col-xs-12 m-3">
+            <div *ngFor="let item of items" (click)="verItem( item )" class="row animated fadeIn no-gutters puntero search-margin">
+                <div class="col-md-3">
+                    <img [src]="item.thumbnail | noimage" class="card-img img-thumb" alt="Free sheeping">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body text-left">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <span class="search-price">{{ item.installments.amount | currency }}</span>
+                                <span *ngIf="item.shipping.free_shipping" class="search-shipping-span">
+                                    <img src="assets/img/ic_shipping.png" data-toggle="tooltip" data-placement="right" title="Free sheeping" width="30" height="30" class="d-inline-block search-shipping" alt="">
+                                </span>
+                            </div>
+                            <div class="col-sm-4 text-right search-location">{{ item.address.state_name }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 search-title">{{ item.title }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 search-subtitle">{{ item.condition }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 hidden-xs"></div>
+    </div>
+</div>
